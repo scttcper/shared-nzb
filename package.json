@@ -1,0 +1,57 @@
+{
+  "name": "--libraryname--",
+  "version": "0.0.0-placeholder",
+  "description": "",
+  "author": "--username-- <--email-->",
+  "license": "MIT",
+  "repository": "",
+  "type": "module",
+  "exports": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
+  "files": [
+    "dist/src"
+  ],
+  "sideEffects": false,
+  "keywords": [
+    "typescript"
+  ],
+  "scripts": {
+    "lint": "eslint --ext .ts .",
+    "lint:fix": "eslint --fix --ext .ts .",
+    "prepare": "npm run build",
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ci": "vitest run --coverage --reporter=default --reporter=junit --outputFile=./junit.xml",
+    "postinstall": "node --loader ts-node/esm ./setup.js && npm install --ignore-scripts"
+  },
+  "devDependencies": {
+    "@ctrl/eslint-config": "3.5.4",
+    "@sindresorhus/tsconfig": "3.0.1",
+    "@types/inquirer": "9.0.3",
+    "@types/lodash-es": "4.17.6",
+    "@types/node": "18.11.9",
+    "@types/shelljs": "0.8.11",
+    "@vitest/coverage-c8": "0.25.2",
+    "c8": "7.12.0",
+    "del": "7.0.0",
+    "inquirer": "9.1.4",
+    "lodash-es": "4.17.21",
+    "replace-in-file": "6.3.5",
+    "shelljs": "0.8.5",
+    "ts-node": "10.9.1",
+    "typescript": "4.9.3",
+    "vitest": "0.25.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "release": {
+    "branches": [
+      "--main--"
+    ]
+  },
+  "engines": {
+    "node": ">=14.16"
+  }
+}
